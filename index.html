@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reloj javascript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .reloj {
+
+            font-size: 3em;
+            font-family: monospace;
+            color: #a5e96e;
+            text-shadow: 1px 3px;
+            text-align: center;
+
+
+        }
+
+        .relojdia {
+            font-size: 3em;
+            font-family: monospace;
+            color: #000000;
+            text-shadow: 1px 3px;
+            text-align: center;
+
+        }
+
+        .borde {
+            background-color: #000;
+            border-radius: 15px;
+            width: 15em;
+            height: 3, 7em;
+            margin: 5% auto;
+            border: 1px solid blue;
+        }
+
+        .exterior {
+            box-shadow: 3px 4px rgb(143, 45, 45);
+            margin: 5% auto;
+            border: 6px solid rgb(160, 51, 51);
+            border-radius: 15px;
+            width: 23em;
+            background-color: rgb(160, 51, 51);
+
+        }
+
+        li {
+            box-shadow: 1px 2px rgb(138, 134, 134);
+            display: inline-flex;
+            margin: 0 auto;
+            border: 4px solid rgb(199, 193, 193);
+            width: 1em;
+            height: 1em;
+            border-radius: 100%;
+            background-color: rgb(199, 193, 193);
+            text-align: center;
+        }
+
+        ul {
+
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div class="exterior">
+        <div class="borde">
+            <div class="reloj">
+                00:00:00
+            </div>
+        </div>
+        <ul>
+            <li class="bot1">♨</li>
+            <li class="bot2">☼</li>
+            <li class="bot3">✔</li>
+        </ul>
+    </div>
+    <script>
+        setInterval(() => {
+            var reloj = document.getElementsByClassName("reloj")[0];
+            var currentTime = new Date();
+            var hora = currentTime.getHours();
+            if (hora < 10) {
+                hora = `0${hora}`
+            }
+            var minutos = currentTime.getMinutes();
+            if (minutos < 10) {
+                minutos = `0${minutos}`
+
+            }
+            var segundos = currentTime.getSeconds();
+            if (segundos < 10) {
+                segundos = `0${segundos}`
+            }
+            reloj.innerHTML = `${hora}:${minutos}:${segundos}`
+        }, 1000);
+    </script>
+</body>
+
+</html>
